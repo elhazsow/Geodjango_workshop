@@ -25,9 +25,10 @@ environ.Env.read_env(BASE_DIR/'.env')
 
 # Replace with your GEOS DLL path  
 GEOS_LIBRARY_PATH = 'C:\\OSGeo4W\\bin\\geos_c.dll'
-
-# GDAL_DATA=C:\new_doc\OSGeo4W\apps\gdal\share\gdal
-# PROJ_LIB=C:\new_doc\OSGeo4W\share\proj
+GDAL_LIBRARY_PATH = 'C:\\OSGeo4W\\bin\\gdal309.dll'
+# environnement variables for GDAL and PROJ
+# GDAL_DATA=r"C:\OSGeo4W\apps\gdal\share\gdal"
+# PROJ_LIB=r"C:\OSGeo4W\share\proj"
 # https://docs.djangoproject.com/fr/6.0/ref/contrib/gis/tutorial/
 # https://www.codegenes.net/blog/how-to-install-geos-for-geodjango-on-windows/
 # https://www.codegenes.net/blog/how-to-install-geos-for-geodjango-on-windows/

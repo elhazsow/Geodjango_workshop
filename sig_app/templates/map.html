@@ -5,6 +5,7 @@
 <link href="{% static 'map.css' %}" rel="stylesheet">
 {% endblock %}
 {% block content %} 
+    {{communes_json|json_script:"communes" }}
     {% leaflet_map "map" %}
 {% endblock %}
 {% block scripts %}
