@@ -56,6 +56,7 @@ window.addEventListener("map:init" ,function(e){
     geojsonLayer.addTo(map)
     map.fitBounds(geojsonLayer.getBounds())
 
+    
     // ajout d'une couche WMS avec geoserver
 
     let overlay = L.tileLayer.wms("http://localhost:8080/geoserver/cite/wms",{
@@ -67,8 +68,6 @@ window.addEventListener("map:init" ,function(e){
     })
     let lc = map.layerscontrol
     lc.addOverlay(overlay, "Commune_geoserver").addTo(map)
-
-    
 
     
 
