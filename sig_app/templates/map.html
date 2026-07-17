@@ -7,3 +7,6 @@
 {% block content %} 
     {% leaflet_map "map" %}
 {% endblock %}
+{% block scripts %}
+<script src="{% static 'map.js' %}" defer></script>
+{% endblock %}

@@ -178,10 +178,14 @@ LEAFLET_CONFIG = {
     },
 
        
-    'TILES': [('Satellite', 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{'attribution': 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community','maxZoom': 18}),
-    ('OpenstreetsMap','https://tile.openstreetmap.org/{z}/{x}/{y}.png', {"maxZoom": 19,"attribution": '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',})
+    'TILES': [('OpenTopoMap','https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {'maxZoom': 17,'attribution': 'Map data: &copy; OpenStreetMap contributors'}),
+        ('Satellite', 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{'attribution': 'Tiles &copy; Esri &mdash; Source: Esri','maxZoom': 18}),
+    ('OpenstreetsMap','https://tile.openstreetmap.org/{z}/{x}/{y}.png', {"maxZoom": 19,"attribution": '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',}),
+    
     
     ],
+    
+   
 
     # 'SRID': 3857, # See http://spatialreference.org
 
@@ -190,8 +194,8 @@ LEAFLET_CONFIG = {
     # # 'MIN_ZOOM': 3,
     # 'MAX_ZOOM': 18,
     # 'DEFAULT_PRECISION': 6,
-    'NO_GLOBALS' : True,
-    'RESET_VIEW':False,
+    # 'NO_GLOBALS' : True,
+    # 'RESET_VIEW':False,
     
 
 }
