@@ -12,23 +12,35 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Load environment variables from .env file
+env = environ.Env(
+    DEBUG=(bool, False)
+)
+environ.Env.read_env(BASE_DIR/'.env')
 
 # Replace with your GEOS DLL path  
-GEOS_LIBRARY_PATH = 'C:\\new_doc\\OSGeo4W\\bin\\geos_c.dll'
+GEOS_LIBRARY_PATH = 'C:\\OSGeo4W\\bin\\geos_c.dll'
+
+# GDAL_DATA=C:\new_doc\OSGeo4W\apps\gdal\share\gdal
+# PROJ_LIB=C:\new_doc\OSGeo4W\share\proj
+# https://docs.djangoproject.com/fr/6.0/ref/contrib/gis/tutorial/
+# https://www.codegenes.net/blog/how-to-install-geos-for-geodjango-on-windows/
+# https://www.codegenes.net/blog/how-to-install-geos-for-geodjango-on-windows/
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ct+xxy=_hyj^*mr(0b777-o4ilzz&7-=1x3t$)z8abqdkv0-v7'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -43,6 +55,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
+    'django_extensions',
+    'django_bootstrap5',
     'leaflet',
     'sig_app',
 ]
@@ -83,11 +97,11 @@ WSGI_APPLICATION = 'websig.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'websig',
-        'USER': 'postgres',
-        'PASSWORD': 'Elhaz492878@',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),
     }
 }
 
@@ -171,11 +185,11 @@ LEAFLET_CONFIG = {
 
     # 'SRID': 3857, # See http://spatialreference.org
 
-    'DEFAULT_CENTER': (14.36,-14.44),
-    'DEFAULT_ZOOM': 7,
-    # 'MIN_ZOOM': 3,
-    'MAX_ZOOM': 18,
-    'DEFAULT_PRECISION': 6,
+    # 'DEFAULT_CENTER': (14.36,-14.44),
+    # 'DEFAULT_ZOOM': 7,
+    # # 'MIN_ZOOM': 3,
+    # 'MAX_ZOOM': 18,
+    # 'DEFAULT_PRECISION': 6,
     'NO_GLOBALS' : True,
     'RESET_VIEW':False,
     

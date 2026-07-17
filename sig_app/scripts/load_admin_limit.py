@@ -1,6 +1,6 @@
 from pathlib import Path
 from django.contrib.gis.utils import LayerMapping
-from app.models import Region, Departement, Commune
+from sig_app.models import Region, Departement, Commune
 
 region_mapping = {
     "name": "REG",

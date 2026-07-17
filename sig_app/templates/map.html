@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load leaflet_tags %}
+{% load static %}
+{%block head%} 
+<link href="{% static 'map.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %} 
+    {% leaflet_map "map" %}
+{% endblock %}

@@ -1,0 +1,28 @@
+{% load leaflet_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load django_bootstrap5 %} 
+    {% bootstrap_css %} <!-- load bootstrap css styles -->
+    {% bootstrap_javascript %} <!-- load bootstrap javascript scripts -->
+    
+   
+    {% leaflet_css plugins="Draw" %} <!-- load css styles for leaflet -->
+    {% leaflet_js plugins="Draw" %} <!-- load javascript scripts for leaflet -->
+
+    {% block head%}
+    <title>Base</title>
+    {% endblock %}
+    
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+
+    {% block scripts %}
+    {% endblock %}
+</body>
+</html>
