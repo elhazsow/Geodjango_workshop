@@ -4,8 +4,8 @@ django-bootstrap5==26.2
 django-environ==0.14.0
 django-extensions==4.1
 django-leaflet==0.33.0
-psycopg==3.3.4
 psycopg-binary==3.3.4
+psycopg2==2.9.12
 sqlparse==0.5.5
 typing_extensions==4.16.0
 tzdata==2026.2

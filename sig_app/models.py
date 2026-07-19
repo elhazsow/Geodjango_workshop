@@ -35,3 +35,7 @@ class Commune(models.Model):
     class Meta:
         ordering=['name']
     def __str__(self): return self.name
+    
+class Raster(models.Model):
+    name=models.CharField(max_length=200)
+    rst=models.RasterField() # nécessite postgis_raster extension
