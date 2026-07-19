@@ -10,5 +10,5 @@ def map_view(request):
     regions = Region.objects.all()
     regions_json = serialize('geojson', regions, geometry_field='geom', fields=('name', 'code'))
     # print(communes_json)
-    context = {'communes_json': regions_json}
+    context = {'regions_json': regions_json}
     return render(request, 'map.html', context)

@@ -1,15 +1,9 @@
-const divmap = document.getElementById("map")
-let communes =JSON.parse(document.getElementById("communes").textContent)
+
+let regions = JSON.parse(document.getElementById("regions").textContent) // récupération des données regions depuis le script JSON
 
 
-let fetch_wfs = async function(url,params){
-    let queryString = new URLSearchParams(params).toString();
-    let response = await fetch(url+"?"+queryString)
-    let data = await response.json()
-    return data
-}
 let mouseoverFunction = function(e){
-    let layer = e.target
+    let layer = e.target  
     layer.setStyle({
         weight: 8,
         color: 'orange',
@@ -28,10 +22,14 @@ let mouseoutFunction = function(e){
 
 let clickFunction = function(e){
     let layer = e.target
+    // console.log(layer.feature.properties)
+    
     layer.setStyle({
         weight: 5,
         color: 'blue',
     })
+    let popupContent = "<div class='popup'><h4>"+layer.feature.properties.name+"</h4><p>Code: "+layer.feature.properties.code+"</p></div>"
+    layer.bindPopup(popupContent)
 }
 
 
@@ -41,22 +39,23 @@ let onEachFeature = function(feature, layer){
         "mouseout": mouseoutFunction,
         "click": clickFunction
     })
-    // let popupContent = "<h3>"+feature.properties.name+"</h3><p>Code: "+feature.properties.code+"</p>"
-    // layer.bindPopup(popupContent)
+    
 }
 
 
 window.addEventListener("map:init" ,function(e){
     let map = e.detail.map; // récupération de l'objet map
+    let lc = map.layerscontrol //récupération de l'objet layercontrol
     // ajout de données
-    let geojsonLayer = L.geoJSON(JSON.parse(communes),{
-        style: { color: 'darkblue', weight: 2},
-        onEachFeature: onEachFeature
+    let geojsonLayer = L.geoJSON(JSON.parse(regions),{
+        style: { color: 'darkblue', weight: 2}, //leaflet: https://leafletjs.com/examples/choropleth/
+        // onEachFeature: onEachFeature
     })
     geojsonLayer.addTo(map)
+    lc.addOverlay(geojsonLayer, "regions").addTo(map)
     map.fitBounds(geojsonLayer.getBounds())
 
-    
+
     // ajout d'une couche WMS avec geoserver
 
     let overlay = L.tileLayer.wms("http://localhost:8080/geoserver/cite/wms",{
@@ -64,10 +63,10 @@ window.addEventListener("map:init" ,function(e){
         format:"image/png",
         transparent:true,
         srs:"EPSG:32628",
-        attribution:"Données de la région"
+        attribution:"Limites administratives des communes"
     })
-    let lc = map.layerscontrol
-    lc.addOverlay(overlay, "Commune_geoserver").addTo(map)
+    
+    // lc.addOverlay(overlay, "Commune_geoserver").addTo(map)
 
     
 

@@ -155,10 +155,11 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'app/static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-#leaflet setting
 
+#leaflet setting
+# django-leaflet: https://django-leaflet.readthedocs.io/en/latest/templates.html#configuration
 LEAFLET_CONFIG = {
-    'SPATIAL_EXTENT': (-11, 11,-18.5,18),
+    'SPATIAL_EXTENT': (-11, 11,-18.5,18), # (max_lon,max_lat, min_lon, min_lat)
     'ATTRIBUTION_PREFIX': '',
     'FORCE_IMAGE_PATH':True,
     'MINIMAP': False,
@@ -186,7 +187,6 @@ LEAFLET_CONFIG = {
     
     ],
     
-   
 
     # 'SRID': 3857, # See http://spatialreference.org
 
