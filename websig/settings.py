@@ -159,8 +159,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 #leaflet setting
 # django-leaflet: https://django-leaflet.readthedocs.io/en/latest/templates.html#configuration
 LEAFLET_CONFIG = {
-    'SPATIAL_EXTENT': (-11, 11,-18.5,18), # (max_lon,max_lat, min_lon, min_lat)
-    'ATTRIBUTION_PREFIX': '',
+    'SPATIAL_EXTENT': (-11, 11,-18.5,18), # (max_lon,min_lat, min_lon, max_lat)
+    'ATTRIBUTION_PREFIX': 'geodjango_workshop',
     'FORCE_IMAGE_PATH':True,
     'MINIMAP': False,
     'PLUGINS': {
@@ -196,7 +196,7 @@ LEAFLET_CONFIG = {
     # 'MAX_ZOOM': 18,
     # 'DEFAULT_PRECISION': 6,
     # 'NO_GLOBALS' : True,
-    # 'RESET_VIEW':False,
+    'RESET_VIEW':False,
     
 
 }

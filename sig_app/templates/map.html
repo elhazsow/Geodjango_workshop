@@ -2,12 +2,13 @@
 {% load leaflet_tags %}
 {% load static %}
 {%block head%} 
-{#  <link href="{% static 'map.css' %}" rel="stylesheet">  #}
+<link href="{% static 'map.css' %}" rel="stylesheet">
 {% endblock %}
 {% block content %} 
     {{regions_json|json_script:"regions" }}
+    {{communes|json_script:"communes"}}
     {% leaflet_map "map" %}
 {% endblock %}
 {% block scripts %}
-{#  <script src="{% static 'map.js' %}" defer></script>  #}
+<script src="{% static 'map.js' %}" defer></script>
 {% endblock %}

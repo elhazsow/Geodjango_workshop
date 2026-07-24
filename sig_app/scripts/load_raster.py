@@ -1,6 +1,7 @@
 from sig_app.models import Raster
 from django.contrib.gis.gdal import GDALRaster
 
+# https://docs.djangoproject.com/fr/6.0/ref/contrib/gis/gdal/
 
 def run(verbose=True):
     print("Chargement Raster DTM")
