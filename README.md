@@ -181,7 +181,7 @@ http://127.0.0.1:8000/
 
 Vous devriez voir la carte interactive de l’application.
 
-![App screen shot](captures/HOME.PNG?raw=true)
+![App screen shot](captures/Home.PNG?raw=true)
 
 ---
 
