@@ -1,4 +1,4 @@
-# GeoDjango Workshop – Guide d'utilisation pour étudiants en Licence 3 Géomatique
+# GeoDjango Workshop – Guide d'utilisation
 
 Ce dépôt permet de découvrir les bases de GeoDjango à travers une petite application web de cartographie. Il a été conçu pour montrer comment :
 
