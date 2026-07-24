@@ -91,10 +91,9 @@ CREATE EXTENSION IF NOT EXISTS postgis;
 À la racine du projet, créez un fichier nommé `.env` avec le contenu suivant :
 
 ```env
-SECRET_KEY=votre_cle_secrete
-DEBUG=True
-DB_NAME=geodjango_workshop
-DB_USER=postgres
+DEBUG=True 
+DB_NAME=nom_de_ta_BD
+DB_USER=user_de_ta_BD
 DB_PASSWORD=votre_mot_de_passe
 DB_HOST=localhost
 DB_PORT=5432
@@ -121,6 +120,11 @@ GDAL_LIBRARY_PATH = 'C:\\OSGeo4W\\bin\\gdal309.dll'
 
 Si votre installation OSGeo4W utilise un autre chemin, adaptez-le.
 
+Ajoute les variables d'environnement pour GDAL et PROJ:
+```
+GDAL_DATA="C:\OSGeo4W\apps\gdal\share\gdal"
+PROJ_LIB="C:\OSGeo4W\share\proj"
+```
 ---
 
 ## 7. Appliquer les migrations
@@ -153,7 +157,7 @@ Cette opération peut prendre quelques secondes selon la taille des données.
 
 ### 8.2 Charger un raster (optionnel)
 
-Le script de chargement de raster est également disponible. Il est toutefois dépendant d’un fichier local. Il faut adapter le chemin du fichier TIFF dans le script avant de l’exécuter :
+Le script de chargement de raster est également disponible(nécessite l'extension *postgis_raster*). Il est toutefois dépendant d’un fichier local. Il faut adapter le chemin du fichier TIFF dans le script avant de l’exécuter :
 
 ```bash
 python manage.py runscript load_raster
@@ -177,6 +181,8 @@ http://127.0.0.1:8000/
 
 Vous devriez voir la carte interactive de l’application.
 
+![App screen shot](captures/HOME.PNG?raw=true)
+
 ---
 
 ## 10. Utiliser l’application
@@ -198,6 +204,8 @@ Cette page permet de remplir :
 - un nom,
 - une description,
 - un point géographique positionné sur la carte.
+
+  ![App screen shot](captures/Formulaire.PNG?raw=true)
 
 ### 10.3 Explorer les données avec Django ORM
 
